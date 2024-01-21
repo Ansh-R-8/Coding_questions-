@@ -35,4 +35,33 @@ if arr:
     x = arr[0]
     res.append(x)
 print(' '.join(map(str, res)))
+
+
+'''Q Ramesh is searching a solution to problem posted. The statement is as follows
+
+Print the maximum sum produced by increasing subarray. Ramesh is very confused to see the question,Help him.
+
+Input Description:
+You are given a number ‘n’,Then next line contains n space separated numbers.
+
+Output Description:
+Maximum sum value produced by the increasing sub array of size 'n'
+
+Sample Input :
+6
+2 1 4 7 3 6'''
+
+# code
+
+n = int(input())
+arr = list(map(int,input().split()))
+L = [0]*n
+for i in range(n):
+    L[i] = arr[i]
+for i in range(1,n):
+    for j in range(i):
+        if arr[i] > arr[j] and L[i] < L[j] + arr[i]:
+            L[i] = L[j] + arr[i]
+x = max(L)
+print(x)
     
